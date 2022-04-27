@@ -32,6 +32,9 @@
   --button-bg-color: #f5f4fa;
   --card-set-gap: 30px;
   --social-link-color: #afb1b8;
+  --description-bg-color: rgba(47, 48, 58, 0.8);
+  --accent-bg-overlay-color: rgba(33, 150, 243, 0.9);
+  --transicion-overlay: transform 250ms ease;
 }
 
 body {
@@ -61,6 +64,8 @@ img {
   list-style: none;
 }
 
+/* BUTTON */
+
 .button {
   font-family: inherit;
   font-weight: 500;
@@ -70,6 +75,8 @@ img {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* SECTION */
 
 .section {
   padding-top: 94px;
@@ -89,6 +96,8 @@ img {
   line-height: 1.17;
   text-align: center;
 }
+
+/* CONTAINER */
 
 .container {
   margin-left: auto;
@@ -174,6 +183,8 @@ img {
 
 .site-nav .link.current {
   color: var(--accent-color);
+
+  position: relative;
 }
 
 /* AUTH NAV */
