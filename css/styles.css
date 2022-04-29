@@ -129,6 +129,14 @@ img {
 
 .page-header {
   display: flex;
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+
+  background-color: var(--primary-bg-color);
 }
 
 .main-nav {
