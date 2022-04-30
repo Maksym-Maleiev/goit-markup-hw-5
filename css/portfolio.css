@@ -38,8 +38,6 @@
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
 
-  border: 1px solid #eeeeee;
-
   position: relative;
   overflow: hidden;
 }
@@ -53,6 +51,10 @@
 .portfolio-list > .item:hover .overlay,
 .portfolio-list > .item:focus .overlay {
   transform: translateX(0);
+}
+
+.portfolio-list .card {
+  border: 1px solid #eeeeee;
 }
 
 .portfolio-list .card-content {
