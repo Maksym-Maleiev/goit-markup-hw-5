@@ -34,6 +34,7 @@
   --social-link-color: #afb1b8;
   --description-bg-color: rgba(47, 48, 58, 0.8);
   --accent-bg-overlay-color: rgba(33, 150, 243, 0.9);
+  --page-header-border-color: #ececec;
   --transicion-overlay: transform 250ms ease;
 }
 
@@ -128,6 +129,7 @@ img {
 /* PAGE HEADER */
 
 .page-header {
+  position: relative;
   display: flex;
 
   position: fixed;
@@ -137,6 +139,17 @@ img {
   transform: translateX(-50%);
 
   background-color: var(--primary-bg-color);
+}
+
+.page-header:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  height: 1px;
+  width: 100%;
+  background-color: var(--page-header-border-color);
 }
 
 .main-nav {
@@ -193,6 +206,19 @@ img {
   color: var(--accent-color);
 
   position: relative;
+}
+
+.site-nav .link.current::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  height: 4px;
+  width: 100%;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 /* AUTH NAV */
