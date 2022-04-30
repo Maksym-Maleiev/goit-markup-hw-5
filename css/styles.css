@@ -126,19 +126,77 @@ img {
   overflow: hidden;
 }
 
+/* BACKDROP */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* MODAL */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 14px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+
+  background-color: var(--primary-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-button .icon {
+  fill: var(--primary-black-color);
+}
+
 /* PAGE HEADER */
 
 .page-header {
   position: relative;
   display: flex;
+  z-index: 0;
 
-  position: fixed;
+  /* Фиксированный хедер */
+
+  /* position: fixed;
   top: 0;
   left: 50%;
   z-index: 2;
   transform: translateX(-50%);
 
-  background-color: var(--primary-bg-color);
+  background-color: var(--primary-bg-color); */
 }
 
 .page-header:after {
