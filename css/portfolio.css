@@ -14,6 +14,9 @@
 
 .filter-list .button {
   padding: 6px 22px;
+
+  transition: background-color 250ms var(--timing-function), color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .filter-list .button:hover,
@@ -38,8 +41,7 @@
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
 
-  position: relative;
-  overflow: hidden;
+  transition: box-shadow 250ms var(--timing-function), transform 250ms var(--timing-function);
 }
 
 .portfolio-list > .item:hover,
@@ -50,16 +52,26 @@
 
 .portfolio-list > .item:hover .overlay,
 .portfolio-list > .item:focus .overlay {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
-.portfolio-list .card {
-  border: 1px solid #eeeeee;
+/* ------------------------------------ */
+
+.portfolio-list .card-thumb {
+  position: relative;
+
+  overflow: hidden;
 }
+
+/* ------------------------------------- */
 
 .portfolio-list .card-content {
   padding: 20px 24px;
   text-align: left;
+
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .portfolio-list .title {
@@ -87,11 +99,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 293px;
+  height: 100%;
 
   background-color: var(--accent-bg-overlay-color);
-  transform: translateX(-100%);
-  transition: var(--transicion-overlay);
+
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
 }
 
 .overlay > .overlay-text {

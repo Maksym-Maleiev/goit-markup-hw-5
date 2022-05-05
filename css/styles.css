@@ -35,7 +35,7 @@
   --description-bg-color: rgba(47, 48, 58, 0.8);
   --accent-bg-overlay-color: rgba(33, 150, 243, 0.9);
   --page-header-border-color: #ececec;
-  --transicion-overlay: transform 250ms ease;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -126,61 +126,6 @@ img {
   overflow: hidden;
 }
 
-/* BACKDROP */
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* MODAL */
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 528px;
-  height: 581px;
-
-  background-color: #fff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.close-button {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  top: 14px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-
-  background-color: var(--primary-bg-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.close-button .icon {
-  fill: var(--primary-black-color);
-}
-
 /* PAGE HEADER */
 
 .page-header {
@@ -199,7 +144,7 @@ img {
   background-color: var(--primary-bg-color); */
 }
 
-.page-header:after {
+.page-header::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -223,6 +168,8 @@ img {
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .logo .accent {
@@ -246,6 +193,7 @@ img {
 }
 
 .site-nav .link {
+  position: relative;
   display: inline-block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -253,6 +201,8 @@ img {
   color: var(--primary-text-color);
   font-weight: 500;
   letter-spacing: 0.02em;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link:hover,
@@ -260,10 +210,35 @@ img {
   color: var(--accent-color);
 }
 
-.site-nav .link.current {
-  color: var(--accent-color);
+/* Пробный вариант сделать */
 
+.site-nav .link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  height: 4px;
+  width: 100%;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 250ms var(--timing-function), transform 250ms var(--timing-function);
+}
+
+.site-nav .link:hover::after,
+.site-nav .link:hover::after {
+  opacity: 1;
+  transform: scaleX(100%);
+}
+
+.site-nav .link.current {
   position: relative;
+
+  color: var(--accent-color);
 }
 
 .site-nav .link.current::after {
@@ -277,6 +252,9 @@ img {
   width: 100%;
   background-color: var(--accent-color);
   border-radius: 2px;
+
+  opacity: 1;
+  transform: scaleX(100%);
 }
 
 /* AUTH NAV */
@@ -300,6 +278,8 @@ img {
   color: var(--secondary-text-color);
   font-weight: 500;
   letter-spacing: 0.02em;
+
+  transition: color 250ms var(--timing-function);
 }
 
 .auth-nav .link:hover,
@@ -353,6 +333,8 @@ img {
   margin-bottom: 20px;
 
   color: var(--primary-white-color);
+
+  transition: color 250ms var(--timing-function);
 }
 
 .footer .logo:hover,
@@ -378,6 +360,8 @@ img {
   margin-bottom: 9px;
 
   color: var(--footer-contact-color);
+
+  transition: color 250ms var(--timing-function);
 }
 
 .contacts .link:hover,
